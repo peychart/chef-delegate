@@ -47,7 +47,55 @@
   </tr>
 </table>
 
+## Binary compilation
+
 ## Usage
+
+ Configurations can be defined in data bags.
+
+ eg:
+
+ Data bag "clusters":
+
+    {
+      "id": "proxy.my.domain",
+      "chef-delegate": {
+        "options": [
+          "-P3129",
+          "SERVER=\"ftp\"",
+          "RELAY=\"proxy:*:*:*\"",
+          "SRCIF=\"*:8020-8120:ftp-data\"",
+          "CACHE=no",
+          "RELIABLE=\"192.168.0.0/16,10.0.0.0/8\""
+        ],
+        "permit": {
+          "callOptions": "PERMIT=\"ftp:\"",
+          "rules": [
+            "# 192.168.0.0/24 network anywhere:",
+            "*:192.168.0.0/24",
+            "*:192.168.1.11/32",
+            "",
+            "# Access to ftp.org from 192.168.73.17:",
+            "ftp.org:192.168.73.17",
+            "",
+            ...
+          ]
+        }
+      },
+    }
+
+ Vagranfile example:
+
+    chef.json = {
+      "chef-nodeAttributes" => {
+        "databag_name" => "clusters"
+      }
+    }
+    
+    chef.run_list = [
+      "recipe[chef-nodeAttributes::default]",
+      "recipe[chef-delegate::default]"
+    ]
 
 ### chef-delegate::default
 
