@@ -49,6 +49,17 @@
 
 ## Binary compilation
 
+ Depends on 'openssl' and 'zlib1g'.
+
+ Get the last version of 'delegate' (see: http://www.delegate.org/delegate/download/).
+
+    tar xzf delegateX.X.X.tar.gz
+    cd delegateX.X.X
+    make
+    Put the binary 'delegated' where you need it...
+
+ Regarding this cookbook, binaries are in a directory whose name matches the corresponding distribution...
+
 ## Usage
 
  Configurations can be defined in data bags.
