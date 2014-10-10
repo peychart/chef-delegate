@@ -36,7 +36,7 @@
   <tr>
     <td><tt>['chef-delegate'][name of the parameters file]['callOption']</tt></td>
     <td>String</td>
-    <td></td>
+    <td>Defines the option allowing the parametersFile call</td>
     <td><tt>nil</tt></td>
   </tr>
   <tr>
@@ -51,22 +51,19 @@
 
  Depends on 'openssl' and 'zlib1g'.
 
- Get the last version of 'delegate' (see: http://www.delegate.org/delegate/download/).
-
+    wget the last version of 'delegate' (see: http://www.delegate.org/delegate/download/).
     tar xzf delegateX.X.X.tar.gz
     cd delegateX.X.X
     make
-    Put the binary 'delegated' where you need it...
+    Put the produced binary ('delegated') where you need it...
 
- Regarding this cookbook, binaries are in a directory whose name matches the corresponding distribution...
+ Regarding this cookbook, binaries are in directories whose names match the corresponding distribution...
 
 ## Usage
 
  Configurations can be defined in data bags.
 
- eg:
-
- Data bag "clusters":
+ eg: Data bag "clusters":
 
     {
       "id": "proxy.my.domain",
@@ -82,7 +79,7 @@
         "permit": {
           "callOptions": "PERMIT=\"ftp:\"",
           "rules": [
-            "# 192.168.0.0/24 network anywhere:",
+            "# 192.168.0.0/24 network to anywhere:",
             "*:192.168.0.0/24",
             "*:192.168.1.11/32",
             "",
@@ -92,7 +89,7 @@
             ...
           ]
         }
-      },
+      }
     }
 
  Vagranfile example:
