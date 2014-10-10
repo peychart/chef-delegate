@@ -24,9 +24,12 @@
   end
 end
 
-bash "get" do
-  code "cd /usr/local/sbin && wget #{node['chef-delegate']['url']}/#{node['platform']}-#{node['platform_version']}/delegated && chmod 755 delegated"
-  not_if { ::File.exists?("/usr/local/sbin/delegated") }
+cookbook_file '/usr/local/sbin/delegated' do
+  source "#{node['platform']}-#{node['platform_version']}"
+  owner 'root'
+  group 'root'
+  mode '0755'
+  action :create
 end
 
 i=1; while i do
