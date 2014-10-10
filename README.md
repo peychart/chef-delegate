@@ -16,12 +16,6 @@
     <th>Default</th>
   </tr>
   <tr>
-    <td><tt>['chef-delegate']['url']</tt></td>
-    <td>String</td>
-    <td>URL where to get the binary</td>
-    <td><tt>'https://github.com/peychart/chef-delegate/raw/master'</tt></td>
-  </tr>
-  <tr>
     <td><tt>['chef-delegate']['options']</tt></td>
     <td>String array</td>
     <td>list of options to the command line</td>
