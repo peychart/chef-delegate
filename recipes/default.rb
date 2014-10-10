@@ -18,7 +18,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
 
-%w[ wget openssl zlib1g ].each do |pack|
+%w[ openssl zlib1g ].each do |pack|
   package pack do
     action :upgrade
   end
