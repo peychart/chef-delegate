@@ -2,7 +2,6 @@
 # Cookbook Name:: chef-delegate
 # Attributes:: chef-delegate
 #
-default['chef-delegate']['url'] = 'https://github.com/peychart/chef-delegate/raw/master'
 default['chef-delegate']['options'] = ['-P3129', 'SERVER="ftp"']
 default['chef-delegate']['paramsFilePath'] = '/usr/local/etc/delegate/'
 #and:
