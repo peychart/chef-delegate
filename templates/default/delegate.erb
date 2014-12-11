@@ -22,12 +22,10 @@ PIDFILE=/var/run/delegate.pid
 
 test -x $DAEMON || exit 5
 
-DELEGATE_OPTS=<% @options.each do |i| %><%= i %> <% end -%>
-
 case "$1" in
  start)
   log_daemon_msg "Starting DELEGATE daemon" "delegate"
-  start-stop-daemon --start --quiet --oknodo -m --pidfile $PIDFILE --startas $DAEMON -- $DELEGATE_OPTS
+  start-stop-daemon --start --quiet --oknodo -m --pidfile $PIDFILE --startas $DAEMON -- <% @options.each do |i| %><%= i %> <% end -%>
   log_end_msg $?
   ;;
  stop)
