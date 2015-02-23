@@ -2,7 +2,7 @@
 # Cookbook Name:: chef-delegate
 # Attributes:: chef-delegate
 #
-default['chef-delegate']['options'] = ['-P3129', 'SERVER="ftp"']
+default['chef-delegate']['options'] = ['-P3129', 'STLS="-fcl"', 'SERVER="ftp"']
 default['chef-delegate']['paramsFilePath'] = '/usr/local/etc/delegate/'
 #and:
 #default['chef-delegate']['paramsFileName']['callOption'] = ''
