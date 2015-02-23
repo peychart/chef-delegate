@@ -33,6 +33,7 @@ case "$1" in
   start-stop-daemon --stop --quiet --oknodo --pidfile $PIDFILE
   log_end_msg $?
   rm -f $PIDFILE
+  killall $DAEMON
   ;;
  restart|force-reload)
   $0 stop && sleep 2 && $0 start
