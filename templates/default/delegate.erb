@@ -32,8 +32,8 @@ case "$1" in
   log_daemon_msg "Stopping DELEGATE daemon" "delegate"
   start-stop-daemon --stop --quiet --oknodo --pidfile $PIDFILE
   log_end_msg $?
-  rm -f $PIDFILE
   killall $DAEMON
+  rm -f $PIDFILE
   ;;
  restart|force-reload)
   $0 stop && sleep 2 && $0 start
